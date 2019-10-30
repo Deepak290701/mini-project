@@ -2,6 +2,8 @@
 #include<conio.h>
 #include<string.h>
 
+
+//Function to enter the details of a new student to the database
 void add(){
     char name[100],address[200];
     int rollno;
@@ -22,6 +24,7 @@ void add(){
 }
 
 
+//Function To print List of all the students
 void print(){
     system("cls");
     FILE *fp;
