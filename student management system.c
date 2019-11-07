@@ -2,8 +2,6 @@
 #include<conio.h>
 #include<string.h>
 
-
-//Function to enter the details of a new student to the database
 void add(){
     char name[100],address[200];
     int rollno;
@@ -12,9 +10,9 @@ void add(){
     system("cls");
     FILE *fp;
     fp=fopen("studen.txt","a");
-    while(choic>=1 || choic<0){
+    while(choic > 0  || choic < 0 ){
         system("cls");
-        printf("Enter Name    Roll No.   Phone No.        Address  \n      ");
+        printf("Enter  Name    Roll No.   Phone No.      Address  \n");
         scanf(" %s   %d    %d   %s",&name,&rollno,&phoneno,&address);
         printf("\n Successfully Added\n");
         printf("\n To add another entry enter a number other than 0 :- \n");
@@ -24,7 +22,6 @@ void add(){
 }
 
 
-//Function To print List of all the students
 void print(){
     system("cls");
     FILE *fp;
@@ -35,8 +32,8 @@ void print(){
     fp=fopen("studen.txt","r");
     printf(" Name    Roll No.   Phone No.        Address  \n");
     while(!feof(fp)){
-        fscanf(fp,"  %s     %d       %d        %s\n",&name[i],&rollno[i],&phoneno[i],&address[i]);
-        printf("%s         %d               %d                    %s\n",name[i],rollno[i],phoneno[i],address[i]);
+        fscanf(fp,"  %s  %d  %d  %s \n",&name[i],&rollno[i],&phoneno[i],&address[i]);
+        printf("%s \t\t %d \t\t %d \t\t %s \n",name[i],rollno[i],phoneno[i],address[i]);
         i++;
     }
     fclose(fp);
@@ -61,15 +58,22 @@ void main(){
     printf(" \nEnter Your Choice:--\n");
     scanf("%d",&choice);
         switch(choice){
+            case 0:return ;
+                    break;
             case 1: add();
                     break;
             case 2: print();
+                    break;
+            case 3:
                     break;
             default:
                     break;
 
         }
+        printf("\n press 0 for exit else 1  :- ");
+        scanf("%d",&choice);
         if(choice==0)
             break;
+
     }
 }
